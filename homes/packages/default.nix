@@ -14,12 +14,9 @@
     pwndbg
     git
     lazygit
-    # oh-my-zsh
-    alacritty
     nerd-fonts.jetbrains-mono
     xsel
-    cargo    # discord
-    fzf-zsh
+    cargo
   ];
 
   programs.fzf.enable = true;

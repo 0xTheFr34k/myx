@@ -262,6 +262,7 @@ fi
 alias xcopy='xsel --clipboard --input <'
 alias xpaste='xsel --clipboard --output >'
 alias xshow='xsel --clipboard --output'
+alias alacritty='setsid alacritty'
 
 export EDITOR=lvim
 # bind -x '"\C-x\C-v": "vipe"'
@@ -279,4 +280,7 @@ vipe_pipe_exec() {
 }
 zle -N vipe_pipe_exec
 bindkey '^E' vipe_pipe_exec
+
+
+PATH="$PATH:$HOME/.cargo/bin"
 
