@@ -1,3 +1,4 @@
+# {config,...}:
 {
 
   imports = [
@@ -11,7 +12,7 @@
   home.sessionVariables = {
     EDITOR = "lvim";
     TERMINAL = "alacritty";
-    ZSH_DISABLE_COMPFIX = "true";
+    NEO4J_CONF = "/home/freak/.config/neo4j"; 
   };
 
   programs.home-manager.enable = true;
