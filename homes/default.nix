@@ -18,4 +18,10 @@
     EDITOR = "lvim";
   };
   programs.home-manager.enable = true;
+
+  # home.shellAliases = {
+  #   ls = "ls -la";
+  #   alacritty = "setsid alacritty";
+  # };
+
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }: {
+{ pkgs, ... }: {
   # example of how to allow unfree softwares
   # nixpkgs.config.allowUnfreePredicate = 
   #   pkg: builtins.elem ( pkgs.lib.getName pkg) [
@@ -17,6 +17,7 @@
     nerd-fonts.jetbrains-mono
     xsel
     cargo
+    (pkgs.callPackage ./alacritty { })
   ];
 
   programs.fzf.enable = true;
@@ -29,6 +30,7 @@
     userName = "0xthefr34k";
     userEmail = "tayayassine6@live.fr";
   };
+
 
 }
 
