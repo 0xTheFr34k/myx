@@ -12,13 +12,12 @@
     # utils
     tmux
     btop
-    fzf lunarvim moreutils
+    lunarvim
+    moreutils
     pwndbg
-    git
     lazygit
     xsel
     cargo
-    zsh
     (pkgs.callPackage ./alacritty { })
 
     #fonts
