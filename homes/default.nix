@@ -1,4 +1,4 @@
-# {config,...}:
+# {config,pkgs,lib,...}:
 {
 
   imports = [
@@ -13,8 +13,17 @@
     EDITOR = "lvim";
     TERMINAL = "alacritty";
     NEO4J_CONF = "/home/freak/.config/neo4j"; 
+    FZF_DEFAULT_OPTS = "-e";
+    FZF_CTRL_R_OPTS="
+      --color header:italic
+    ";
+    FZF_CTRL_T_OPTS="
+      --walker-skip .git,node_modules,target
+      --style full
+      --preview 'bat -n --color=always {}'
+      --bind 'ctrl-/:change-preview-window(down|hidden|)'
+    ";
   };
-
   programs.home-manager.enable = true;
 
   xdg = {
@@ -35,6 +44,10 @@
      alacritty = {
         source = ./packages/alacritty;
       };
+      neo4j = {
+        source = ./packages/neo4j;
+      };
+
     };
   };
 

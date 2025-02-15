@@ -1,15 +1,24 @@
-{ pkgs, ... }: {
+{ pkgs,...}: {
 
   # example of how to allow unfree softwares
 
   nixpkgs.config.allowUnfreePredicate = 
     pkg: builtins.elem ( pkgs.lib.getName pkg) [
       "discord"
-      "adreaper"
-    ];
+      "adreaper" ];
 
   home.packages = with pkgs; [
     # utils
+    bat
+    direnv
+    nix-ld
+    devenv
+    python312
+    python312Packages.pip
+    stdenv.cc.cc.lib
+    pipx
+    openssl
+    uv
     tmux
     btop
     lunarvim
@@ -18,6 +27,7 @@
     lazygit
     xsel
     cargo
+    pyenv
     (pkgs.callPackage ./alacritty { })
 
     #fonts
@@ -72,7 +82,6 @@
 
   ];
 
-
   programs.fzf.enable = true;
 
   programs.git = {
@@ -89,7 +98,7 @@ programs.zsh = {
   syntaxHighlighting.enable = true;
 
   initExtra = ''
-    # source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+    # vipe
     vipe_pipe_exec() {
       local original_buffer="$BUFFER"
       BUFFER=""
@@ -99,6 +108,9 @@ programs.zsh = {
     }
     zle -N vipe_pipe_exec
     bindkey '^E' vipe_pipe_exec
+
+    # devevn
+    eval "$(direnv hook zsh)"
   '';
 
   shellAliases = {
