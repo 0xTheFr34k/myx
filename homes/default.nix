@@ -1,4 +1,4 @@
-# {config,pkgs,lib,...}:
+{config,pkgs,lib,...}:
 {
 
   imports = [
@@ -10,9 +10,10 @@
 
 
   home.sessionVariables = {
+    _VENV_PATH = "${config.home.homeDirectory}/.local/venv-tools/.devenv/state/venv/bin";    
     EDITOR = "lvim";
     TERMINAL = "alacritty";
-    NEO4J_CONF = "/home/freak/.config/neo4j"; 
+    NEO4J_CONF = "${config.home.homeDirectory}/.config/neo4j"; 
     FZF_DEFAULT_OPTS = "-e";
     FZF_CTRL_R_OPTS="
       --color header:italic
