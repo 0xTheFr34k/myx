@@ -12,8 +12,12 @@
 
   home.packages = with pkgs; [
     # utils
+    jq
+    httpx
+    nuclei
+    tor
     bat
-    # kanata
+    updog
     direnv
     nix-ld
     devenv

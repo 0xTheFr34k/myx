@@ -32,6 +32,8 @@
       responder = "_ responder";
       shellerator = "$_VENV_PATH/shellerator 2> /dev/null";
       pwncat-cs = "$_VENV_PATH/pwncat-cs";
+      abuseACL = "$_VENV_PATH/abuseACL";
+      dirsearch = "$_VENV_PATH/dirsearch";
 
     };
 
