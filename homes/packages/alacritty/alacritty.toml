@@ -23,22 +23,22 @@ background = "0x23252e"
 foreground = "0xFFFFFF"
 
 [font]
-size = 10
+size = 14
 
 [font.bold]
-family = "Fira Code"
+family = "JetBrains Mono Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "Fira Code"
+family = "JetBrains Mono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "Fira Code"
+family = "JetBrains Mono Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "Fira Code"
+family = "JetBrains Mono Nerd Font"
 style = "Regular"
 
 [window]
