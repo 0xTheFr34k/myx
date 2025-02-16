@@ -36,7 +36,8 @@
     xsel
     cargo
     pyenv
-    (pkgs.callPackage ./alacritty { })
+    # (pkgs.callPackage ./alacritty { })
+    alacritty
 
     #fonts
     nerd-fonts.jetbrains-mono
@@ -44,7 +45,8 @@
     # windows / AD
     python312Packages.impacket
     arsenal
-    (pkgs.callPackage ./neo4j {})
+    # (pkgs.callPackage ./neo4j {})
+    neo4j
     bloodhound
     kerbrute
     adidnsdump
