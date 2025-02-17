@@ -16,6 +16,7 @@
       pwncat-cs = "$_VENV_PATH/pwncat-cs";
       abuseACL = "$_VENV_PATH/abuseACL";
       dirsearch = "$_VENV_PATH/dirsearch";
+      fzf-lists="fd -L . $(wordlists_path) -t file | fzf -e --preview 'bat --style=numbers --color=always --line-range :500 {}'";
     };
 
     oh-my-zsh = {

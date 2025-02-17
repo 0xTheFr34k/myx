@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     jq
+    fd
     bat
     uv
     xsel
