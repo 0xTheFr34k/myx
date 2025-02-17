@@ -6,6 +6,7 @@
     ./windows-ad.nix
     ./allowUnfreePredicate.nix
     ./desktop.nix
+    ./network.nix
   ];
 
   home.packages = with pkgs; [

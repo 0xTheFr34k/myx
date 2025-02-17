@@ -15,6 +15,7 @@
     alacritty
     lunarvim
     openssl
+    docker
 
     # lsp
     alejandra
