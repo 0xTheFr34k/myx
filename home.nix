@@ -6,6 +6,9 @@
   home.username = "freak";
   home.homeDirectory = "/home/${config.home.username}";
   home.stateVersion = "24.11";
+  home.file = {
+    ".local/bin/helper.py".source = ./dotfiles/helpers/helper.py;
+  };
 
   home.sessionVariables = {
     EDITOR = "lvim";

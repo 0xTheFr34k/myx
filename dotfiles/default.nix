@@ -20,6 +20,9 @@
       neo4j = {
         source = ./neo4j;
       };
+      dockerfiles = {
+        source = ./dockerfiles;
+      };
     };
   };
 }

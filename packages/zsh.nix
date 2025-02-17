@@ -17,6 +17,8 @@
       abuseACL = "$_VENV_PATH/abuseACL";
       dirsearch = "$_VENV_PATH/dirsearch";
       fzf-lists="fd -L . $(wordlists_path) -t file | fzf -e --preview 'bat --style=numbers --color=always --line-range :500 {}'";
+      kalilinux= "docker run --network host -it kalilinux";
+      helper = "~/.local/bin/helper.py";
     };
 
     oh-my-zsh = {
