@@ -14,4 +14,4 @@ vim.api.nvim_set_keymap('n', '<S-h>', ':BufferLineCyclePrev<CR>', { noremap = tr
 -- Map Ctrl + S to save the file
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
 
-
+vim.api.nvim_set_keymap('n', '<S-f>', ":%!alejandra -qq<CR>", { noremap = true, silent = true })
