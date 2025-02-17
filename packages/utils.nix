@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     jq
+    gnumake
     fd
     bat
     uv
@@ -26,6 +27,7 @@
     direnv
     devenv
     lazygit
+    lazydocker
     updog
   ];
 }

@@ -13,6 +13,10 @@
     python312
     python312Packages.pip
     stdenv.cc.cc.lib
+    go
+    gcc
+    responder
+    (pkgs.callPackage ./john.nix { })
   ];
 
   programs.fzf.enable = true;

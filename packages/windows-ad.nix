@@ -45,6 +45,7 @@
 
     # password cracking
     hashcat
+    # john
 
     # pwn
     pwndbg
