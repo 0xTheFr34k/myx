@@ -8,7 +8,6 @@
   home.homeDirectory = "/home/freak";
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
-
   home.sessionVariables = {
     _VENV_PATH = "${config.home.homeDirectory}/.local/venv-tools/.devenv/state/venv/bin";    
     EDITOR = "lvim";

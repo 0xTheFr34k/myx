@@ -8,10 +8,17 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem ( pkgs.lib.getName pkg) [
       "discord"
       "adreaper"
+      "burpsuite"
+      "spotify"
   ];
 
   home.packages = with pkgs; [
     # utils
+    vlc
+    spotify
+    brave
+    burpsuite
+    discord
     jq
     httpx
     nuclei

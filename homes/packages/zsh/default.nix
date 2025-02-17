@@ -34,6 +34,7 @@
       pwncat-cs = "$_VENV_PATH/pwncat-cs";
       abuseACL = "$_VENV_PATH/abuseACL";
       dirsearch = "$_VENV_PATH/dirsearch";
+      rebuild   = "nixos-rebuild switch --use-remote-sudo";
 
     };
 
