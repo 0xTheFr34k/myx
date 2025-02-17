@@ -11,7 +11,5 @@
 
     #wordlists
     wordlists
-
-  # (pkgs.wordlists.override { lists = with pkgs; [ rockyou ] })
   ];
 }
