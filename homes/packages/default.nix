@@ -7,13 +7,16 @@
   # example of how to allow unfree softwares
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem ( pkgs.lib.getName pkg) [
       "discord"
-      "adreaper"
+      # "adreaper"
       "burpsuite"
       "spotify"
+      "obsidian"
   ];
 
   home.packages = with pkgs; [
     # utils
+    freerdp3
+    obsidian
     vlc
     spotify
     brave
@@ -57,7 +60,7 @@
     bloodhound
     kerbrute
     adidnsdump
-    adreaper
+    # adreaper
     bloodhound-py
     breads-ad
     certi
