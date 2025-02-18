@@ -13,7 +13,8 @@
       a = "arsenal";
       shellerator = "shellerator 2> /dev/null";
       fzf-lists="fd -L . $(wordlists_path) -t file | fzf -e --preview 'bat --style=numbers --color=always --line-range :500 {}'";
-      kalilinux= "docker run --network host --privileged  --mount type=bind,source=$HOME/kali,target=/root/kali  -it kalilinux";
+      kalilinux= "docker run --rm --network host --privileged --mount type=bind,source=$HOME/kali,target=/root/kali -it kalilinux";
+      juice-shop="docker run --rm -p 3000:3000 bkimminich/juice-shop";
       helper = "~/.local/bin/helper.py";
     };
 

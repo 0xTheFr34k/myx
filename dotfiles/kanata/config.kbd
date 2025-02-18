@@ -13,6 +13,10 @@
     t
     r
     d
+    f
+    e
+    w
+    s
     bspc
 )
 
@@ -35,6 +39,10 @@
     t
     r
     d
+    f
+    e
+    w
+    s
     bspc
 )
 
@@ -53,5 +61,9 @@
     C-t
     C-r
     C-d
+    C-f
+    C-e
+    C-w
+    C-s
     C-bspc
 )
