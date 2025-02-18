@@ -19,12 +19,6 @@
     FZF_CTRL_R_OPTS = "
       --color header:italic
     ";
-    FZF_CTRL_T_OPTS = "
-      --walker-skip .git,node_modules,target
-      --style full
-      --preview 'bat -n --color=always {}'
-      --bind 'ctrl-/:change-preview-window(down|hidden|)'
-    ";
   };
   programs.home-manager.enable = true;
 }

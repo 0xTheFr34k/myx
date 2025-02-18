@@ -23,6 +23,9 @@
       dockerfiles = {
         source = ./dockerfiles;
       };
+      kanata = {
+        source = ./kanata;
+      };
     };
   };
 }

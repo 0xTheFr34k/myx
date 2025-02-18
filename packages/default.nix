@@ -15,7 +15,6 @@
     stdenv.cc.cc.lib
     go
     gcc
-    responder
     (pkgs.callPackage ./john.nix { })
   ];
 

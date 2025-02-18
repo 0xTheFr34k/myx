@@ -1,0 +1,57 @@
+ (defsrc
+    caps
+    i
+    j
+    k
+    l
+    u
+    o
+    a
+    c
+    v
+    x
+    t
+    r
+    d
+    bspc
+)
+
+(defalias ctrlSpace C-spc ;; Ctrl+Space
+    capsmob (tap-hold 180 180 @ctrlSpace (layer-toggle mob)) ;; 'caps' does nothing when tapped, activates 'mob' layer when held
+)
+
+(deflayer default
+    @capsmob    ;; 'capsmob' functionality
+    i          ;; Default action for 'i' key
+    j          ;; Default action for 'j' key
+    k          ;; Default action for 'k' key
+    l          ;; Default action for 'l' key
+    u
+    o
+    a
+    c
+    v
+    x
+    t
+    r
+    d
+    bspc
+)
+
+(deflayer mob
+    -
+    up        ;; 'i' as Up arrow
+    left      ;; 'j' as Left arrow
+    down      ;; 'k' as Down arrow
+    right     ;; 'l' as Right arrow
+    esc
+    bspc
+    C-a
+    C-S-c
+    C-S-v
+    C-x
+    C-t
+    C-r
+    C-d
+    C-bspc
+)
