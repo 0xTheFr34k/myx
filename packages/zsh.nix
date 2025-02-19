@@ -5,7 +5,7 @@
     history.size = 10000;
 
     shellAliases = {
-      update = "home-manager switch";
+      update = "nh home switch ~/.config/home-manager";
       rebuild = "nixos-rebuild switch --use-remote-sudo";
       xcopy = "xsel --clipboard --input <";
       xpaste = "xsel --clipboard --output >";

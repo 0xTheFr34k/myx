@@ -21,7 +21,7 @@
 )
 
 (defalias ctrlSpace C-spc ;; Ctrl+Space
-    capsmob (tap-hold 180 180 @ctrlSpace (layer-toggle mob)) ;; 'caps' does nothing when tapped, activates 'mob' layer when held
+    capsmob (tap-hold 200 200 @ctrlSpace (layer-toggle mob)) ;; 'caps' does nothing when tapped, activates 'mob' layer when held
 )
 
 (deflayer default

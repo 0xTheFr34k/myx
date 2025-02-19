@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, config,...}: {
   home.packages = with pkgs; [
     jq
     gnumake
@@ -17,6 +17,9 @@
     lunarvim
     openssl
     docker
+    # nh
+    nvd
+    nix-output-monitor
 
     # lsp
     alejandra
@@ -30,4 +33,10 @@
     lazydocker
     updog
   ];
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 4d --keep 3";
+    flake = "${config.home.homeDirectory}/.config/home-manager";
+  };
 }
