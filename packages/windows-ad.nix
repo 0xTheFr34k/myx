@@ -39,6 +39,7 @@
     ldapnomnom
     ldeep
     silenthound
+    # netexec
 
     # tor
     tor
@@ -52,6 +53,7 @@
 
     # rdp
     freerdp3
+
 
   ];
 }

@@ -9,7 +9,15 @@
     gobuster
     ffuf
 
-    #wordlists
+    # wordlists
     wordlists
+
+    # cracking
+    thc-hydra
+
+    #sql
+    sqlmap
+    ghauri
+
   ];
 }
