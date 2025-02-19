@@ -20,7 +20,8 @@
     bspc
 )
 
-(defalias ctrlSpace C-spc ;; Ctrl+Space
+(defalias 
+    ctrlSpace C-spc ;; Ctrl+Space
     capsmob (tap-hold 200 200 @ctrlSpace (layer-toggle mob)) ;; 'caps' does nothing when tapped, activates 'mob' layer when held
 )
 
