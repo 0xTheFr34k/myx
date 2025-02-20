@@ -6,10 +6,25 @@
   pkgs,
   ...
 }: {
-  nix.extraOptions = ''
-    trusted-users = root freak
-  '';
+  # nix.extraOptions = ''
+  #   trusted-users = root freak
+  # '';
+  # Firmware Updater
+  services.fwupd.enable = true;
 
+  programs.wireshark.enable = true;
+
+  services.openssh.enable = true;
+  virtualisation.libvirtd.enable = true; # For VMs using virt-manager.
+
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
   users.defaultUserShell = pkgs.zsh;
 
   environment.localBinInPath = true;
@@ -17,12 +32,17 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   nix = {
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
     settings = {
       auto-optimise-store = true;
       experimental-features = ["nix-command" "flakes"];
     };
   };
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "pwnix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -116,7 +136,7 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     home-manager
   ];
-
+  security.krb5.enable = true;
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -134,7 +154,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

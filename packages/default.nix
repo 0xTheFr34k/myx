@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   imports = [
-    ./zsh.nix
+    ./zsh/zsh.nix
     ./utils.nix
     ./web.nix
     ./windows-ad.nix

@@ -1,5 +1,7 @@
 {pkgs, config,...}: {
   home.packages = with pkgs; [
+    distrobox
+    eza
     jq
     gnumake
     fd
