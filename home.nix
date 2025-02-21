@@ -2,6 +2,7 @@
   imports = [
     ./packages
     ./dotfiles
+    ./dconf/dconf.nix
   ];
   home.username = "freak";
   home.homeDirectory = "/home/${config.home.username}";
@@ -18,5 +19,6 @@
       --color header:italic
     ";
   };
+
   programs.home-manager.enable = true;
 }

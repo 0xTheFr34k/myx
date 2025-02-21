@@ -9,6 +9,11 @@
   # nix.extraOptions = ''
   #   trusted-users = root freak
   # '';
+programs.gnome-terminal.enable = true;
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "brave.desktop";
+  };
+  nix.settings.trusted-users = [ "root" "freak" ];
   # Firmware Updater
   networking.extraHosts =
   ''

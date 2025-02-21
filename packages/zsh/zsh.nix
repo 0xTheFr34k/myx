@@ -75,6 +75,8 @@
         a = "arsenal";
         shellerator = "shellerator 2> /dev/null";
         fzf-lists="fd -L . $(wordlists_path) -t file | fzf -e --preview 'bat --style=numbers --color=always --line-range :500 {}'";
+        open ="xdg-open";
+        open-fzf = "xdg-open \"$(fzf)\" > /dev/null";
       };
 
       plugins = with pkgs; [

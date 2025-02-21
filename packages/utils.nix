@@ -31,7 +31,6 @@
     direnv
     devenv
     lazygit
-    lazydocker
     updog
   ];
 
