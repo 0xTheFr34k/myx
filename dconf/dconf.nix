@@ -1,4 +1,4 @@
-{}:
+{...}:
 {
   dconf.settings = {
       "org/gnome/shell" = {
