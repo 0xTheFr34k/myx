@@ -6,11 +6,9 @@
   home.username = "freak";
   home.homeDirectory = "/home/${config.home.username}";
   home.stateVersion = "24.11";
-  home.file = {
-    ".local/bin/helper.py".source = ./dotfiles/helpers/helper.py;
-  };
 
   home.sessionVariables = {
+    DISABLE_COMPFIX= "true";
     EDITOR = "lvim";
     TERMINAL = "alacritty";
     NEO4J_CONF = "${config.home.homeDirectory}/.config/neo4j";

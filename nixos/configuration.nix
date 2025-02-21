@@ -10,6 +10,10 @@
   #   trusted-users = root freak
   # '';
   # Firmware Updater
+  networking.extraHosts =
+  ''
+    127.0.0.1 other-localhost
+  '';
   services.fwupd.enable = true;
 
   programs.wireshark.enable = true;
@@ -21,6 +25,7 @@
   virtualisation = {
     podman = {
       enable = true;
+      dockerCompat = true;     
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
     };
@@ -48,7 +53,7 @@
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  virtualisation.docker.enable = true;
+  # virtualisation.docker.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -119,7 +124,7 @@
   users.users.freak = {
     isNormalUser = true;
     description = "freak";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "input" "libvirtd" "wireshark"];
     packages = with pkgs; [
       #  thunderbird
     ];

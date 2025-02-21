@@ -58,15 +58,14 @@
 
       shellAliases = {
         cat = "bat";
+        # bat = "batcat";
         cd = "z";
         vi = "nvim";
         vim = "nvim";
         ls = "eza --icons";
         tree = "eza --tree --icons";
-        kali = "distrobox enter --root kali-rolling";
-        kali-create = "distrobox create --root kalilinux/kali-rolling";
-        arch = "distrobox enter --root archlinux";
-        arch-create = "distrobox create --root archlinux";
+        kali = "distrobox enter kali-linux";
+        kali-create = "distrobox create kalilinux/kali-rolling --name kali-linux";
         update = "nh home switch ~/.config/home-manager";
         rebuild = "nixos-rebuild switch --use-remote-sudo";
         xcopy = "xsel --clipboard --input <";
@@ -75,9 +74,6 @@
         a = "arsenal";
         shellerator = "shellerator 2> /dev/null";
         fzf-lists="fd -L . $(wordlists_path) -t file | fzf -e --preview 'bat --style=numbers --color=always --line-range :500 {}'";
-        kalilinux= "docker run --rm --network host --privileged --mount type=bind,source=$HOME/kali,target=/root/kali -it kalilinux";
-        juice-shop="docker run --rm -p 3000:3000 bkimminich/juice-shop";
-        helper = "~/.local/bin/helper.py";
       };
 
       plugins = with pkgs; [

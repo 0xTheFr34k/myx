@@ -38,18 +38,9 @@
     ldapdomaindump
     ldapnomnom
     ldeep
-    silenthound
-    # netexec
 
     # tor
     tor
-
-    # password cracking
-    hashcat
-    # john
-
-    # pwn
-    pwndbg
 
     # rdp
     freerdp3

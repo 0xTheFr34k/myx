@@ -11,11 +11,6 @@
 
   home.packages = with pkgs; [
     python312
-    python312Packages.pip
-    stdenv.cc.cc.lib
-    go
-    gcc
-    (pkgs.callPackage ./john.nix { })
   ];
 
   programs.fzf.enable = true;

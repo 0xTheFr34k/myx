@@ -18,8 +18,7 @@
     alacritty
     lunarvim
     openssl
-    docker
-    # nh
+    openvpn
     nvd
     nix-output-monitor
 
@@ -35,6 +34,7 @@
     lazydocker
     updog
   ];
+
   programs.nh = {
     enable = true;
     clean.enable = true;
