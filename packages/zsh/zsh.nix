@@ -66,6 +66,7 @@
         tree = "eza --tree --icons";
         kali = "distrobox enter kali-linux";
         kali-create = "distrobox create kalilinux/kali-rolling --name kali-linux";
+        kali-setup = "source ~/.bashrc";
         update = "nh home switch ~/.config/home-manager";
         rebuild = "nixos-rebuild switch --use-remote-sudo";
         xcopy = "xsel --clipboard --input <";
