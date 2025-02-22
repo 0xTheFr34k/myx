@@ -6,15 +6,18 @@
         disabled-extensions = "disabled";
         enabled-extensions = [
           "native-window-placement@gnome-shell-extensions.gcampax.github.com"
-          "pop-shell@system76.com"
-          "caffeine@patapon.info"
-          "hidetopbar@mathieu.bidon.ca"
-          "gsconnect@andyholmes.github.io"
+          "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
         ];
-        favorite-apps = ["firefox.desktop" "brave.desktop" "alacritty.desktop"];
         had-bluetooth-devices-setup = true;
-        # remember-mount-password = false;
-        welcome-dialog-last-shown-version = "42.4";
+        remember-mount-password = false;
+      };
+      "org/gnome/shell/extensions/auto-move-windows" = {
+        application-list = [
+          "spotify.desktop:1"
+          "discord.desktop:2"
+          "Alacritty.desktop:3"
+          "brave-browser.desktop:4"
+        ];
       };
       "org/gnome/shell/extensions/hidetopbar" = {
         enable-active-window = false;
@@ -71,7 +74,7 @@
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
         name = "alacritty terminal";
-        command = "alacritty";
+        command = "alacritty -e tmux";
         binding = "<Shift><Alt>T";
       };
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
