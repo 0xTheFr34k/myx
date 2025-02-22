@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     distrobox
     eza
+    ripgrep
     jq
     gnumake
     fd

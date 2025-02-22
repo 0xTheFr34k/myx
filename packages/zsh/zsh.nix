@@ -59,6 +59,7 @@
       shellAliases = {
         cat = "bat";
         # bat = "batcat";
+        grep = "rg";
         cd = "z";
         vi = "nvim";
         vim = "nvim";
