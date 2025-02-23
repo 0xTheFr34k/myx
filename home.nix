@@ -19,6 +19,8 @@
       --color header:italic
     ";
   };
-
+ home.file = {
+    ".local/bin/helper.py".source = ./dotfiles/helpers/helper.py;
+  };
   programs.home-manager.enable = true;
 }

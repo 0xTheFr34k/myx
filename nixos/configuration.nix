@@ -9,6 +9,17 @@
   # nix.extraOptions = ''
   #   trusted-users = root freak
   # '';
+  programs.nix-ld.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
+  programs.nix-ld.libraries = with pkgs; [
+
+
+    # Add any missing dynamic libraries for unpackaged programs
+
+    # here, NOT in environment.systemPackages
+
+  ];
 programs.gnome-terminal.enable = true;
   xdg.mime.defaultApplications = {
     "application/pdf" = "brave.desktop";
@@ -18,23 +29,26 @@ programs.gnome-terminal.enable = true;
   networking.extraHosts =
   ''
     127.0.0.1 other-localhost
+    192.168.56.22  castelblack.north.sevenkingdoms.local  castelblack
+    192.168.56.11  winterfell.north.sevenkingdoms.local   winterfell    north.sevenkingdoms.local
+    192.168.56.10  kingslanding.sevenkingdoms.local       kingslanding  sevenkingdoms.local
   '';
   services.fwupd.enable = true;
 
   programs.wireshark.enable = true;
 
-  services.openssh.enable = true;
-  virtualisation.libvirtd.enable = true; # For VMs using virt-manager.
+  # services.openssh.enable = true;
+  # virtualisation.libvirtd.enable = true; # For VMs using virt-manager.
 
-  virtualisation.containers.enable = true;
-  virtualisation = {
-    podman = {
-      enable = true;
-      dockerCompat = true;     
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
-    };
-  };
+  # virtualisation.containers.enable = true;
+  # virtualisation = {
+  #   podman = {
+  #     enable = true;
+  #     dockerCompat = true;     
+  #     # Required for containers under podman-compose to be able to talk to each other.
+  #     defaultNetwork.settings.dns_enabled = true;
+  #   };
+  # };
   users.defaultUserShell = pkgs.zsh;
 
   environment.localBinInPath = true;
@@ -58,7 +72,7 @@ programs.gnome-terminal.enable = true;
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-  # virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -80,6 +94,7 @@ programs.gnome-terminal.enable = true;
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
+  services.xserver.videoDrivers = [ "amdgpu" "radeon" "cirrus" "vesa" "nouveau" ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -96,7 +111,8 @@ programs.gnome-terminal.enable = true;
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-
+services.xserver.displayManager.startx.enable = true;
+networking.firewall.allowedTCPPorts = [ 6000 ]; # Allow X server
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -105,7 +121,8 @@ programs.gnome-terminal.enable = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-
+  # hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -129,7 +146,7 @@ programs.gnome-terminal.enable = true;
   users.users.freak = {
     isNormalUser = true;
     description = "freak";
-    extraGroups = ["networkmanager" "wheel" "input" "libvirtd" "wireshark"];
+    extraGroups = ["networkmanager" "wheel" "input" "libvirtd" "wireshark" "docker"];
     packages = with pkgs; [
       #  thunderbird
     ];

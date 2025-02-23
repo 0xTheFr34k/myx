@@ -1,5 +1,15 @@
 FROM  kalilinux/kali-rolling
 
-RUN apt update
+ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt install responder iproute2 vim  netcat-traditional -y
+RUN apt update && apt upgrade -y
+
+# RUN apt -yq install kali-linux-headless
+
+RUN apt -yq install kali-linux-everything
+
+ENV DEBIAN_FRONTEND=newt
+
+RUN apt -y install zsh
+
+ENTRYPOINT ["/bin/zsh"]

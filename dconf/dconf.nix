@@ -7,9 +7,13 @@
         enabled-extensions = [
           "native-window-placement@gnome-shell-extensions.gcampax.github.com"
           "auto-move-windows@gnome-shell-extensions.gcampax.github.com"
+          "caffeine@patapon.info"
+
         ];
         had-bluetooth-devices-setup = true;
         remember-mount-password = false;
+        welcome-dialog-last-shown-version = "42.4";
+
       };
 
       "org/gnome/shell/extensions/auto-move-windows" = {

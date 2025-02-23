@@ -6,6 +6,7 @@
       "burpsuite"
       "spotify"
       "obsidian"
+      "vagrant"
     ];
 
 }

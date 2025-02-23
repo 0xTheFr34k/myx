@@ -11,6 +11,12 @@
 
   home.packages = with pkgs; [
     python312
+    nix-ld
+    vagrant
+    # virtualbox
+    nix-prefetch
+    dpkg
+    xorg.xhost
   ];
 
   programs.fzf.enable = true;

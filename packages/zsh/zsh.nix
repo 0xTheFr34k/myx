@@ -65,8 +65,10 @@
         vim = "nvim";
         ls = "eza --icons";
         tree = "eza --tree --icons";
-        kali = "distrobox enter kali-linux";
-        kali-create = "distrobox create kalilinux/kali-rolling --name kali-linux";
+        # kali = "distrobox enter kali-linux";
+        # kali-create = "distrobox create kalilinux/kali-rolling --name kali-linux";
+        kalilinux= "xhost +local:docker > /dev/null 2>&1 && docker run --network host --privileged --mount type=bind,source=$HOME/kali,target=/root/kali -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -it kalilinux";
+        helper = "~/.local/bin/helper.py";
         kali-setup = "source ~/.bashrc";
         update = "nh home switch ~/.config/home-manager";
         rebuild = "nixos-rebuild switch --use-remote-sudo";

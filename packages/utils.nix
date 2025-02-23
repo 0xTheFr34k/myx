@@ -1,6 +1,7 @@
 {pkgs, config,...}: {
   home.packages = with pkgs; [
-    distrobox
+    # distrobox
+    docker
     eza
     ripgrep
     jq
@@ -32,6 +33,7 @@
     direnv
     devenv
     lazygit
+    lazydocker
     updog
   ];
 
