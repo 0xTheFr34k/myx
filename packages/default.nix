@@ -14,9 +14,12 @@
     nix-ld
     vagrant
     # virtualbox
+    exegol
     nix-prefetch
     dpkg
     xorg.xhost
+    wget
+
   ];
 
   programs.fzf.enable = true;

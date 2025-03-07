@@ -9,6 +9,8 @@
   # nix.extraOptions = ''
   #   trusted-users = root freak
   # '';
+    nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnsupportedSystem = true;
   programs.nix-ld.enable = true;
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];

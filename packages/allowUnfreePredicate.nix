@@ -7,6 +7,7 @@
       "spotify"
       "obsidian"
       "vagrant"
+      # "teams"
     ];
 
 }

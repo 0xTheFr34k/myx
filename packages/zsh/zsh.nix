@@ -1,23 +1,22 @@
-{pkgs,...}: {
-
+{pkgs, ...}: {
   home.packages = with pkgs; [
     zsh
     fzf
   ];
-  
-    programs.zoxide = {
-      enable = true;
-      enableZshIntegration = true;
-    };
 
-    programs.zsh = {
-      enable = true;
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
-      dotDir = ".config/zsh";
+  programs.zsh = {
+    enable = true;
 
-      enableCompletion = true;
-      autosuggestion.enable = true;
-      syntaxHighlighting.enable = true;
+    dotDir = ".config/zsh";
+
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
 
     initExtra = ''
       # export _VENV_PATH="/home/freak/.local/venv-tools/.devenv/state/venv/bin"
@@ -56,63 +55,63 @@
       eval "$(direnv hook zsh)"
     '';
 
-      shellAliases = {
-        cat = "bat";
-        # bat = "batcat";
-        grep = "rg";
-        cd = "z";
-        vi = "nvim";
-        vim = "nvim";
-        ls = "eza --icons";
-        tree = "eza --tree --icons";
-        # kali = "distrobox enter kali-linux";
-        # kali-create = "distrobox create kalilinux/kali-rolling --name kali-linux";
-        kalilinux= "xhost +local:docker > /dev/null 2>&1 && docker run --network host --privileged --mount type=bind,source=$HOME/kali,target=/root/kali -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix -it kalilinux";
-        helper = "~/.local/bin/helper.py";
-        kali-setup = "source ~/.bashrc";
-        update = "nh home switch ~/.config/home-manager";
-        rebuild = "nixos-rebuild switch --use-remote-sudo";
-        xcopy = "xsel --clipboard --input <";
-        xpaste = "xsel --clipboard --output >";
-        xshow = "xsel --clipboard --output";
-        a = "arsenal";
-        shellerator = "shellerator 2> /dev/null";
-        fzf-lists="fd -L . $(wordlists_path) -t file | fzf -e --preview 'bat --style=numbers --color=always --line-range :500 {}'";
-        open ="xdg-open";
-        open-fzf = "xdg-open \"$(fzf)\" > /dev/null";
-      };
-
-      plugins = with pkgs; [
-        {
-          name = "powerlevel10k";
-          src = "${zsh-powerlevel10k}/share/zsh-powerlevel10k";
-          file = "powerlevel10k.zsh-theme";
-        }
-        {
-          name = "powerlevel10k-config";
-          src = ./.;
-          file = ".p10k.zsh";
-        }
-        {
-          name = "fzf-zsh";
-          src = "${fzf-zsh}/share/zsh/plugins/fzf-zsh";
-          file = "fzf-zsh.plugin.zsh";
-        }
-        {
-          name = "sudo-zsh";
-          src = ./.;
-          file = "sudo.plugin.zsh";
-        }
-        {
-          name = "zsh-nix-shell";
-          file = "nix-shell.plugin.zsh";
-          src = pkgs.fetchFromGitHub {
-            owner = "chisui";
-            repo = "zsh-nix-shell";
-            rev = "v0.8.0";
-            sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
-          };
-        }
-      ];
+    shellAliases = {
+      cat = "bat";
+      # bat = "batcat";
+      grep = "rg";
+      cd = "z";
+      vi = "nvim";
+      vim = "nvim";
+      ls = "eza --icons";
+      tree = "eza --tree --icons";
+      # kali = "distrobox enter kali-linux";
+      # kali-create = "distrobox create kalilinux/kali-rolling --name kali-linux";
+      kalilinux = "DockerEnter";
+      helper = "~/.local/bin/helper.py";
+      kali-setup = "source ~/.bashrc";
+      update = "nh home switch ~/.config/home-manager";
+      rebuild = "nixos-rebuild switch --use-remote-sudo";
+      xcopy = "xsel --clipboard --input <";
+      xpaste = "xsel --clipboard --output >";
+      xshow = "xsel --clipboard --output";
+      a = "arsenal";
+      shellerator = "shellerator 2> /dev/null";
+      fzf-lists = "fd -L . $(wordlists_path) -t file | fzf -e --preview 'bat --style=numbers --color=always --line-range :500 {}'";
+      open = "xdg-open";
+      open-fzf = "xdg-open \"$(fzf)\" > /dev/null";
     };
+
+    plugins = with pkgs; [
+      {
+        name = "powerlevel10k";
+        src = "${zsh-powerlevel10k}/share/zsh-powerlevel10k";
+        file = "powerlevel10k.zsh-theme";
+      }
+      {
+        name = "powerlevel10k-config";
+        src = ./.;
+        file = ".p10k.zsh";
+      }
+      {
+        name = "fzf-zsh";
+        src = "${fzf-zsh}/share/zsh/plugins/fzf-zsh";
+        file = "fzf-zsh.plugin.zsh";
+      }
+      {
+        name = "sudo-zsh";
+        src = ./.;
+        file = "sudo.plugin.zsh";
+      }
+      {
+        name = "zsh-nix-shell";
+        file = "nix-shell.plugin.zsh";
+        src = pkgs.fetchFromGitHub {
+          owner = "chisui";
+          repo = "zsh-nix-shell";
+          rev = "v0.8.0";
+          sha256 = "1lzrn0n4fxfcgg65v0qhnj7wnybybqzs4adz7xsrkgmcsr0ii8b7";
+        };
+      }
+    ];
+  };
 }
