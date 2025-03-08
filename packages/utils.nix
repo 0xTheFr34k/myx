@@ -1,6 +1,9 @@
 { pkgs, config, ... }: {
   home.packages = with pkgs; [
     # distrobox
+    exegol
+    xorg.xhost
+    wget
     docker
     eza
     ripgrep
@@ -23,10 +26,6 @@
     openvpn
     nvd
     nix-output-monitor
-
-    # lsp
-    alejandra
-
     # fonts
     nerd-fonts.jetbrains-mono
 
@@ -37,10 +36,4 @@
     updog
   ];
 
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 4d --keep 3";
-    flake = "${config.home.homeDirectory}/.config/home-manager";
-  };
 }

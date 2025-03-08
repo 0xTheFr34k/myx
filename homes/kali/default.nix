@@ -1,5 +1,5 @@
 { config, ... }: {
-  imports = [ ../../packages ../../dotfiles ../../dconf/dconf.nix ];
+  imports = [ ../../packages ../../dotfiles ];
   home.username = "kali";
   home.homeDirectory = "/home/${config.home.username}";
   home.stateVersion = "24.11";

@@ -1,28 +1,8 @@
 { pkgs, ... }: {
-  imports = [
-    ./zsh/zsh.nix
-    ./utils.nix
-    ./web.nix
-    ./windows-ad.nix
-    ./allowUnfreePredicate.nix
-    ./desktop.nix
-    ./network.nix
-  ];
+  imports =
+    [ ./zsh/zsh.nix ./utils.nix ./allowUnfreePredicate.nix ./desktop.nix ];
 
-  home.packages = with pkgs; [
-    python312
-    nix-ld
-    vagrant
-    # virtualbox
-    exegol
-    nix-prefetch
-    dpkg
-    xorg.xhost
-    wget
-    nodejs
-    # npm
-
-  ];
+  home.packages = with pkgs; [ python312 vagrant ];
 
   programs.fzf.enable = true;
 

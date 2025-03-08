@@ -7,11 +7,6 @@
     brave
     chromium
     tor-browser
-    # teams
-    # apt
-    # aptly
-    teams-for-linux
-    go
 
   ];
 }

@@ -16,8 +16,6 @@
     syntaxHighlighting.enable = true;
 
     initExtra = ''
-      # export _VENV_PATH="/home/freak/.local/venv-tools/.devenv/state/venv/bin"
-      # vipe
       vipe_pipe_exec() {
         local original_buffer="$BUFFER"
         BUFFER=""
@@ -54,27 +52,15 @@
 
     shellAliases = {
       cat = "bat";
-      # bat = "batcat";
       grep = "rg";
       cd = "z";
       vi = "nvim";
       vim = "nvim";
       ls = "eza --icons";
       tree = "eza --tree --icons";
-      # kali = "distrobox enter kali-linux";
-      # kali-create = "distrobox create kalilinux/kali-rolling --name kali-linux";
-      kalilinux = "DockerEnter";
-      helper = "~/.local/bin/helper.py";
-      kali-setup = "source ~/.bashrc";
-      update = "nh home switch ~/.config/home-manager";
-      rebuild = "nixos-rebuild switch --use-remote-sudo";
       xcopy = "xsel --clipboard --input <";
       xpaste = "xsel --clipboard --output >";
       xshow = "xsel --clipboard --output";
-      a = "arsenal";
-      shellerator = "shellerator 2> /dev/null";
-      fzf-lists =
-        "fd -L . $(wordlists_path) -t file | fzf -e --preview 'bat --style=numbers --color=always --line-range :500 {}'";
       open = "xdg-open";
       open-fzf = ''xdg-open "$(fzf)" > /dev/null'';
     };
