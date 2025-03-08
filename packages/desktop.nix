@@ -6,7 +6,5 @@
     spotify
     brave
     chromium
-    tor-browser
-
   ];
 }
