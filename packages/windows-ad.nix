@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
     # windows / AD
     python312Packages.impacket
@@ -44,7 +44,6 @@
 
     # rdp
     freerdp3
-
 
   ];
 }

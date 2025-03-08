@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     ./zsh/zsh.nix
     ./utils.nix
@@ -19,6 +19,8 @@
     dpkg
     xorg.xhost
     wget
+    nodejs
+    # npm
 
   ];
 

@@ -1,6 +1,1 @@
-{pkgs, ...}: {
-  home.packages = with pkgs; [
-    rustscan
-    go-exploitdb
-  ];
-}
+{ pkgs, ... }: { home.packages = with pkgs; [ rustscan go-exploitdb ]; }

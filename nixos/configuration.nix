@@ -1,35 +1,28 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  ...
-}: {
+{ config, pkgs, ... }: {
   # nix.extraOptions = ''
   #   trusted-users = root freak
   # '';
-    nixpkgs.config.allowUnfree = true;
-    nixpkgs.config.allowUnsupportedSystem = true;
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnsupportedSystem = true;
   programs.nix-ld.enable = true;
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
-  programs.nix-ld.libraries = with pkgs; [
+  programs.nix-ld.libraries = with pkgs;
+    [
 
+      # Add any missing dynamic libraries for unpackaged programs
 
-    # Add any missing dynamic libraries for unpackaged programs
+      # here, NOT in environment.systemPackages
 
-    # here, NOT in environment.systemPackages
-
-  ];
-programs.gnome-terminal.enable = true;
-  xdg.mime.defaultApplications = {
-    "application/pdf" = "brave.desktop";
-  };
+    ];
+  programs.gnome-terminal.enable = true;
+  xdg.mime.defaultApplications = { "application/pdf" = "brave.desktop"; };
   nix.settings.trusted-users = [ "root" "freak" ];
   # Firmware Updater
-  networking.extraHosts =
-  ''
+  networking.extraHosts = ''
     127.0.0.1 other-localhost
     192.168.56.22  castelblack.north.sevenkingdoms.local  castelblack
     192.168.56.11  winterfell.north.sevenkingdoms.local   winterfell    north.sevenkingdoms.local
@@ -65,10 +58,10 @@ programs.gnome-terminal.enable = true;
     };
     settings = {
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = [ "nix-command" "flakes" ];
     };
   };
-  networking.hostName = "pwnix"; # Define your hostname.
+  networking.hostName = "pwnixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -96,7 +89,8 @@ programs.gnome-terminal.enable = true;
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-  services.xserver.videoDrivers = [ "amdgpu" "radeon" "cirrus" "vesa" "nouveau" ];
+  services.xserver.videoDrivers =
+    [ "amdgpu" "radeon" "cirrus" "vesa" "nouveau" ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -105,7 +99,7 @@ programs.gnome-terminal.enable = true;
       enable = true;
       keyboards.internalKeyboard = {
         extraDefCfg = "process-unmapped-keys yes";
-        config = builtins.readFile /home/freak/.config/kanata/config.kbd;
+        # config = builtins.readFile /home/freak/.config/kanata/config.kbd;
       };
     };
   };
@@ -113,8 +107,8 @@ programs.gnome-terminal.enable = true;
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-services.xserver.displayManager.startx.enable = true;
-networking.firewall.allowedTCPPorts = [ 6000 ]; # Allow X server
+  services.xserver.displayManager.startx.enable = true;
+  networking.firewall.allowedTCPPorts = [ 6000 ]; # Allow X server
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -148,10 +142,12 @@ networking.firewall.allowedTCPPorts = [ 6000 ]; # Allow X server
   users.users.freak = {
     isNormalUser = true;
     description = "freak";
-    extraGroups = ["networkmanager" "wheel" "input" "libvirtd" "wireshark" "docker"];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
+    extraGroups =
+      [ "networkmanager" "wheel" "input" "libvirtd" "wireshark" "docker" ];
+    packages = with pkgs;
+      [
+        #  thunderbird
+      ];
     shell = pkgs.zsh;
   };
 
