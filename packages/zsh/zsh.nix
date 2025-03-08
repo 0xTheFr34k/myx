@@ -39,7 +39,7 @@
         [ -d "$dir" ] || dir="$PWD"
 
         local selected
-        selected=$(ls -A "$dir" | fzf) && LBUFFER=$(echo $LBUFFER | sed "s|[^ ]*$|$dir$selected|")
+        selected=$(ls -A "$dir" | fzf) && LBUFFER=$(echo $LBUFFER | sed "s|[^ ]*$|$dir/$selected|")
         zle redisplay
       }
 

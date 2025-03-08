@@ -16,7 +16,6 @@
     moreutils
     btop
     tmux
-    alacritty
     lunarvim
     nerd-fonts.jetbrains-mono
     direnv

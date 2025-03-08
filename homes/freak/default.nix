@@ -1,8 +1,13 @@
-{ config, ... }: {
+{ config,pkgs, ... }: {
   imports = [ ../../packages ../../dotfiles ../../dconf/dconf.nix ];
+
   home.username = "freak";
   home.homeDirectory = "/home/${config.home.username}";
   home.stateVersion = "24.11";
+
+  home.packages = with pkgs; [
+    alacritty
+  ];
 
   home.sessionVariables = {
     DISABLE_COMPFIX = "true";
