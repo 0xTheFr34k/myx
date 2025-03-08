@@ -12,7 +12,6 @@
       lvim = { source = ./lvim; };
       alacritty = { source = ./alacritty; };
       neo4j = { source = ./neo4j; };
-      dockerfiles = { source = ./dockerfiles; };
       kanata = { source = ./kanata; };
     };
   };

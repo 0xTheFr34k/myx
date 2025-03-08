@@ -14,8 +14,5 @@
     FZF_DEFAULT_OPTS = "-e";
     FZF_CTRL_R_OPTS = "\n      --color header:italic\n    ";
   };
-  home.file = {
-    ".local/bin/helper.py".source = ../../dotfiles/helpers/helper.py;
-  };
   programs.home-manager.enable = true;
 }
