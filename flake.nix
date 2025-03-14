@@ -28,32 +28,51 @@
   };
   inputs.flake-parts.url = "github:hercules-ci/flake-parts";
 
-  # nixConfig = {
-  # extra-trusted-public-keys =
-  # "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
-  # extra-substituters = "https://devenv.cachix.org";
-  # };
+  nixConfig = {
+    extra-trusted-public-keys = "devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw=";
+    extra-substituters = "https://devenv.cachix.org";
+  };
 
-  outputs = { self, devenv-root, ... }@inputs:
+  outputs =
+    { self, devenv-root, ... }@inputs:
     let
       inherit (inputs)
-        nixpkgs nixos-hardware flake-parts nur stylix home-manager;
-      lib = nixpkgs.lib // home-manager.lib // {
-        lo = (import ./lib { inherit lib nixpkgs; });
-      };
-    in flake-parts.lib.mkFlake { inherit inputs; } {
+        nixpkgs
+        nixos-hardware
+        flake-parts
+        nur
+        stylix
+        home-manager
+        ;
+      lib =
+        nixpkgs.lib
+        // home-manager.lib
+        // {
+          lo = (import ./lib { inherit lib nixpkgs; });
+        };
+    in
+    flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [ inputs.devenv.flakeModule ];
       systems = lib.lo.systems;
-      perSystem = { config, inputs', pkgs, system, ... }: {
-        formatter = pkgs.treefmt;
-        devenv.shells.default = {
-          devenv.root =
-            let devenvRootFileContent = builtins.readFile devenv-root.outPath;
-            in pkgs.lib.mkIf (devenvRootFileContent != "")
-            devenvRootFileContent;
-          imports = [ ./devenv.nix ];
+      perSystem =
+        {
+          config,
+          inputs',
+          pkgs,
+          system,
+          ...
+        }:
+        {
+          formatter = pkgs.treefmt;
+          devenv.shells.default = {
+            devenv.root =
+              let
+                devenvRootFileContent = builtins.readFile devenv-root.outPath;
+              in
+              pkgs.lib.mkIf (devenvRootFileContent != "") devenvRootFileContent;
+            imports = [ ./devenv.nix ];
+          };
         };
-      };
       flake = {
         nixosConfigurations = {
           pwnixos = lib.nixosSystem {

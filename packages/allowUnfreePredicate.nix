@@ -1,5 +1,7 @@
-{ pkgs, ... }: {
-  nixpkgs.config.allowUnfreePredicate = pkg:
+{ pkgs, ... }:
+{
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (pkgs.lib.getName pkg) [
       "discord"
       "burpsuite"

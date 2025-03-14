@@ -1,5 +1,10 @@
-{ config, ... }: {
-  imports = [ ../../packages ../../dotfiles ../../dconf/dconf.nix ];
+{ config, ... }:
+{
+  imports = [
+    ../../packages
+    ../../dotfiles
+    ../../dconf/dconf.nix
+  ];
   home.username = "freak";
   home.homeDirectory = "/home/${config.home.username}";
   home.stateVersion = "24.11";
@@ -13,4 +18,3 @@
   };
   programs.home-manager.enable = true;
 }
-

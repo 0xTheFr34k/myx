@@ -1,5 +1,9 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [ zsh fzf ];
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    zsh
+    fzf
+  ];
 
   programs.zoxide = {
     enable = true;

@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   dconf.settings = {
     "org/gnome/shell" = {
       disable-user-extensions = false;
@@ -90,33 +91,29 @@
       ];
     };
 
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" =
-      {
-        name = "alacritty terminal";
-        command = "alacritty -e tmux";
-        binding = "<Shift><Alt>T";
-      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      name = "alacritty terminal";
+      command = "alacritty -e tmux";
+      binding = "<Shift><Alt>T";
+    };
 
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" =
-      {
-        name = "discord";
-        command = "discord";
-        binding = "<Shift><Alt>D";
-      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      name = "discord";
+      command = "discord";
+      binding = "<Shift><Alt>D";
+    };
 
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" =
-      {
-        name = "brave";
-        command = "brave";
-        binding = "<Shift><Alt>B";
-      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
+      name = "brave";
+      command = "brave";
+      binding = "<Shift><Alt>B";
+    };
 
-    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" =
-      {
-        name = "spotify";
-        command = "spotify";
-        binding = "<Shift><Alt>S";
-      };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
+      name = "spotify";
+      command = "spotify";
+      binding = "<Shift><Alt>S";
+    };
   };
 
 }

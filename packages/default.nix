@@ -1,8 +1,16 @@
-{ pkgs, ... }: {
-  imports =
-    [ ./zsh/zsh.nix ./utils.nix ./allowUnfreePredicate.nix ./desktop.nix ];
+{ pkgs, ... }:
+{
+  imports = [
+    ./zsh/zsh.nix
+    ./utils.nix
+    ./allowUnfreePredicate.nix
+    ./desktop.nix
+  ];
 
-  home.packages = with pkgs; [ python312 vagrant ];
+  home.packages = with pkgs; [
+    python312
+    vagrant
+  ];
 
   programs.fzf.enable = true;
 

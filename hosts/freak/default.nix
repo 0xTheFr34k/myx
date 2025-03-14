@@ -1,7 +1,15 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-{ lib, pkgs, nixos-hardware, config, inputs, ... }: {
+{
+  lib,
+  pkgs,
+  nixos-hardware,
+  config,
+  inputs,
+  ...
+}:
+{
 
   imports = [ ./hardware-configuration.nix ];
 
@@ -11,8 +19,13 @@
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
   programs.gnome-terminal.enable = true;
-  xdg.mime.defaultApplications = { "application/pdf" = "brave.desktop"; };
-  nix.settings.trusted-users = [ "root" "freak" ];
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "brave.desktop";
+  };
+  nix.settings.trusted-users = [
+    "root"
+    "freak"
+  ];
   networking.extraHosts = ''
     127.0.0.1 other-localhost
     192.168.56.22  castelblack.north.sevenkingdoms.local  castelblack
@@ -36,7 +49,10 @@
     };
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
   };
   networking.hostName = "pwnixos";
@@ -60,8 +76,13 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-  services.xserver.videoDrivers =
-    [ "amdgpu" "radeon" "cirrus" "vesa" "nouveau" ];
+  services.xserver.videoDrivers = [
+    "amdgpu"
+    "radeon"
+    "cirrus"
+    "vesa"
+    "nouveau"
+  ];
 
   services.xserver.enable = true;
   services = {
@@ -147,7 +168,7 @@
 
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.startx.enable = true;
+  # services.xserver.displayManager.startx.enable = true;
   networking.firewall.allowedTCPPorts = [ 6000 ]; # Allow X server
 
   services.xserver.xkb = {
@@ -169,8 +190,14 @@
   users.users.freak = {
     isNormalUser = true;
     description = "freak";
-    extraGroups =
-      [ "networkmanager" "wheel" "input" "libvirtd" "wireshark" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "input"
+      "libvirtd"
+      "wireshark"
+      "docker"
+    ];
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };
@@ -178,7 +205,10 @@
   programs.firefox.enable = true;
   programs.zsh.enable = true;
 
-  environment.systemPackages = with pkgs; [ vim home-manager ];
+  environment.systemPackages = with pkgs; [
+    vim
+    home-manager
+  ];
   security.krb5.enable = true;
 
   networking.firewall.enable = false;
