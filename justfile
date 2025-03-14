@@ -9,16 +9,20 @@ default:
   @just --list
 
 # Build and switch nixos config 
+# sudo nixos-rebuild switch --flake '.#{{ machine }}' 
 build-switch-nixos machine=hostname:
-  sudo nixos-rebuild switch --flake '.#{{ machine }}' 
+  nh os switch .
 
 # Build and switch home-manager config
+# home-manager switch --flake '.#{{ user }}@{{ machine }}'
 build-switch-homemanager machine=hostname user=user :
-  home-manager switch --flake '.#{{ user }}@{{ machine }}'
+  nh home switch .
 
+# sudo nixos-rebuild switch --flake '.#{{ machine }}' 
+# home-manager switch --flake '.#{{ user }}@{{ machine }}'
 build-switch-nix-and-homemanager machine=hostname user=user :
-  sudo nixos-rebuild switch --flake '.#{{ machine }}' 
-  home-manager switch --flake '.#{{ user }}@{{ machine }}'
+  nh os switch .
+  nh home switch .
 
 # Update all flake inputs
 upp:
@@ -29,8 +33,9 @@ up *targets:
   nix flake update {{ targets }}
 
 # Garbage collect
+# sudo nix-collect-garbage --delete-old
 gc:
-  sudo nix-collect-garbage --delete-old
+  nh clean all
 
 # Garbage collect
 fmt:
